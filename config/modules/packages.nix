@@ -33,18 +33,6 @@
     nginx
   ];
 
-  programs = {
-    fish = {
-      enable = true;
-    };
-    
-    # nushell = {
-    #   enable = true;
-    # };
-  };
-
-
-
   # Computational Biology Packages
   # environment.systemPackages = with pkgs; [
   #   biopython
