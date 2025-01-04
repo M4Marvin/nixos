@@ -2,14 +2,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
-      ./modules/packages.nix
-      ./modules/users.nix
-      ./modules/networking.nix
-      ./modules/desktop.nix
-      ./modules/audio.nix
-      ./home-manager/home.nix
+      ./modules/default.nix
     ];
 
   # Bootloader.
@@ -30,6 +25,9 @@
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
   };
+
+  powerManagement.cpuFreqGovernor = "ondemand";
+
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.11";

@@ -1,44 +1,28 @@
 {
-  description = "My NixOS Configuration";
+  description = "My NIXOS Config using Flakes and Home-Manager. @m4marvin";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs }:
-    {
-      nixosConfigurations.my-config = {
-        system = {
-          build = {
-            # Add any build options here if needed
-          };
-          # Add any other system configurations here
-        };
-        config = { config, pkgs, ... }:
-          {
-            imports = [ ./config/nixos/configuration.nix ];
-
-            # Bootloader.
-            boot.loader.systemd-boot.enable = true;
-            boot.loader.efi.canTouchEfiVariables = true;
-
-            # Timezone and Locale
-            time.timeZone = "Asia/Kolkata";
-            i18n.defaultLocale = "en_IN";
-            i18n.extraLocaleSettings = {
-              LC_ADDRESS = "en_IN";
-              LC_IDENTIFICATION = "en_IN";
-              LC_MEASUREMENT = "en_IN";
-              LC_MONETARY = "en_IN";
-              LC_NAME = "en_IN";
-              LC_NUMERIC = "en_IN";
-              LC_PAPER = "en_IN";
-              LC_TELEPHONE = "en_IN";
-              LC_TIME = "en_IN";
-            };
-
-            system.stateVersion = "24.11";
-          };
-      };
+   outputs = { self, nixpkgs, home-manager }: {
+    nixosConfigurations.marvin = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./config/configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+      specialArgs = { inherit home-manager; };
     };
+
+    homeConfigurations.marvin = home-manager.lib.homeManagerConfiguration {
+      modules = [ ./config/home-manager/home.nix ];
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = { inherit self nixpkgs home-manager; };
+    };
+  };
 }

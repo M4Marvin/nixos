@@ -1,27 +1,4 @@
-{ config, pkgs, inputs, ... }:
-
-{
-  imports = [
-    ./ghostty.nix
-  ];
-
-  home = {
-    username = "marvin";
-    homeDirectory = "/home/marvin";
-  };
-
-  programs.home-manager.enable = true;
-
-
-  # systemd.user.startServices = "sd-switch";
-
-
-  programs.git = {
-    enable = true;
-    userName = "Marvin V Prakash";
-    userEmail = "marvinprakash@gmail.com";
-  };
-
+{ config, pkgs, ... }: {
   programs.ghostty = {
     enable = true;
     settings = {
@@ -46,6 +23,4 @@
       gtk-titlebar = true;
     };
   };
-  
-  home.stateVersion = "24.11";
 }
