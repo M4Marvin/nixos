@@ -8,7 +8,7 @@
       openFirewall = true;                      # Open the firewall for SSH connections.
 
       banner = "/etc/ssh/banner.txt";     
-  }
+  };
 
   networking.firewall.allowedTCPPorts = [ 22 ];
 

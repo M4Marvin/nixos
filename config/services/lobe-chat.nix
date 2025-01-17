@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  systemd.services.nextjs-app = {
+  systemd.services.lobe-chat = {
     description = "Lobe Chat";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
@@ -11,6 +11,6 @@
       Restart = "always";
       Environment = "HOST=0.0.0.0 PORT=3210";
     };
-    user = "marvin"; 
+    # user = "marvin"; 
   };
 }
