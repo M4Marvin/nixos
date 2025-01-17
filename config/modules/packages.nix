@@ -1,11 +1,28 @@
 { pkgs, ... }:
 
 {
+  services = {
+    flatpak.enable = true;
+    dbus.enable = true;
+    picom.enable = true;
+  };
   
   environment.systemPackages = with pkgs; [
     home-manager
     # General System Packages
     vim
+    bat
+    zoxide
+    fzf
+    bottom
+    sl
+    yazi
+    zellij
+    neovim
+    lsd
+    gh
+    gitui
+    which
     fish
     nushell
     tree
@@ -15,6 +32,11 @@
     libsecret
     xdg-utils
     rustdesk
+    neofetch
+    unzip
+
+    shellcheck
+    nerd-fonts.fira-code
 
     # Terminal
     ghostty
@@ -27,10 +49,24 @@
     # Web Dev
     vscode
     bun
+    deno
     nodejs
     httpie
     docker
     nginx
+
+    # Steam
+    steam
+    steam-run
+
+    zoxide
+    (lutris.override {
+      extraPkgs = pkgs: [
+        # List package dependencies here
+        wineWowPackages.stable
+        winetricks
+      ];
+    })
   ];
 
   # Computational Biology Packages
@@ -50,4 +86,21 @@
 
   # Additional System Configurations (for specific setups)
   # For example, setting environment variables, paths, or special configurations.
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    nerd-fonts.fira-code
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
 }
