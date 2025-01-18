@@ -62,6 +62,7 @@
     ripgrep
     zoxide
     cloudflared
+    blueman
     (lutris.override {
       extraPkgs = pkgs: [
         # List package dependencies here
