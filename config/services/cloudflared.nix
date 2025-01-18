@@ -1,22 +1,21 @@
+# configuration.nix
 { config, pkgs, ... }:
 
 {
   services.cloudflared = {
     enable = true;
-
+    package = pkgs.cloudflared;
     tunnels = {
       "241dce64-be43-40ed-8b0a-50f7e89096a1" = {
-        credentialsFile = "${config.sops.secrets.cloudflared-creds.path}";
+        credentialsFile = "/home/marvin/.cloudflared/cert.pem";
+        # Just the main website for now
         ingress = {
-          "*.morphotech.xyz" = {
-            service = "http://localhost:8000";
-            path = "/*.(jpg|png|css|js)";
+          "morphotech.xyz" = {
+            service = "http://localhost:3000";
           };
+          default = "http_status:404";
         };
-        default = "http_status:404";
       };
     };
-    
-    
-  }
+  };
 }
