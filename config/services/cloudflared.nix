@@ -4,10 +4,10 @@
   services.cloudflared = {
     enable = true;
     package = pkgs.cloudflared;
-    
+    user= "marvin";    
     tunnels = {
-      "241dce64-be43-40ed-8b0a-50f7e89096a1" = {
-        credentialsFile = "/home/marvin/.cloudflared/cert.pem";
+      "6bf978c7-d774-4c8b-97d2-d2b21dc932fc" = {
+        credentialsFile = "/home/marvin/.cloudflared/6bf978c7-d774-4c8b-97d2-d2b21dc932fc.json";
         default = "http_status:404";
         ingress = {
           # Main website configuration

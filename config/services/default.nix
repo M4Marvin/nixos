@@ -3,7 +3,7 @@
 {
   imports = [
     ./lobe-chat.nix
-    # ./cloudflared.nix
+    ./cloudflared.nix
     # ./desktop.nix
   ];
 }
