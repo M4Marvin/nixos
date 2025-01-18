@@ -59,7 +59,9 @@
     steam
     steam-run
 
+    ripgrep
     zoxide
+    cloudflared
     (lutris.override {
       extraPkgs = pkgs: [
         # List package dependencies here

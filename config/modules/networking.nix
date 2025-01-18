@@ -10,7 +10,7 @@
       banner = "/etc/ssh/banner.txt";     
   };
 
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [ 22 3210 ];
 
   # networking.wireless.enable = true;
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -28,4 +28,7 @@
     Proceed only if you have explicit permission.
     **************************************************
   '';
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 }
