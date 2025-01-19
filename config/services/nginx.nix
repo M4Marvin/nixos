@@ -1,4 +1,4 @@
-# configuration.nix
+# nginx.nix
 { config, pkgs, ... }:
 
 {
@@ -16,7 +16,7 @@
       # Main site
       "morphotech.xyz" = {
         locations."/" = {
-          proxyPass = "http://localhost:3000";  # Next.js
+          proxyPass = "http://localhost:3100";  # Next.js
           proxyWebsockets = true;
         };
       };
@@ -35,11 +35,5 @@
         };
       };
     };
-  };
-
-  # Open required ports
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 80 ];  # For Nginx
   };
 }
