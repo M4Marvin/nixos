@@ -10,7 +10,7 @@
       banner = "/etc/ssh/banner.txt";     
   };
 
-  networking.firewall.allowedTCPPorts = [ 22 3210 ];
+  networking.firewall.allowedTCPPorts = [ 80 22 3210 ];
 
   # networking.wireless.enable = true;
   # networking.proxy.default = "http://user:password@proxy:port/";

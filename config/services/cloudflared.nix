@@ -10,12 +10,17 @@
         credentialsFile = "/home/marvin/.cloudflared/6bf978c7-d774-4c8b-97d2-d2b21dc932fc.json";
         default = "http_status:404";
         ingress = {
-          # Main website configuration
-          "morphotech.xyz" = {
-            service = "http://localhost:3000";
+          # Catch all subdomains and send to Nginx
+          "*.morphotech.xyz" = {
+            service = "http://localhost:80";  
             path = "/*";
           };
-          # The default case needs to be a separate key in ingress
+          # Main domain
+          "morphotech.xyz" = {
+            service = "http://localhost:80";
+            path = "/*";
+          };
+          "default" = "http_status:404";
         };
       };
     };

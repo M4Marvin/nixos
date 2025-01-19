@@ -63,6 +63,7 @@
     zoxide
     cloudflared
     blueman
+    xsel
     (lutris.override {
       extraPkgs = pkgs: [
         # List package dependencies here
