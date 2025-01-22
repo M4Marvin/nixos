@@ -8,6 +8,7 @@
     ./packages.nix
     ./users.nix
     ./power.nix
+    ./gc.nix
     ./nvidia.nix
   ];
 }
