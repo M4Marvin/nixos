@@ -35,6 +35,8 @@
     neofetch
     unzip
     lshw
+    pciutils
+    latte-dock
 
     shellcheck
     nerd-fonts.fira-code
