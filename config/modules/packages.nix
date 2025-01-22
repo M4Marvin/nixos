@@ -2,100 +2,84 @@
 
 {
   services = {
-    dbus.enable = true;
     flatpak.enable = true;
+    dbus.enable = true;
     picom.enable = true;
   };
-
+  
   environment.systemPackages = with pkgs; [
-    # General System Packages
-    bat
-    bottom
-    curl
-    fish
-    fzf
-    gh
-    git
-    gitui
     home-manager
-    libsecret
-    lsd
-    neofetch
-    neovim
-    nushell
-    rustdesk
-    sl
-    tree
-    unzip
+    # General System Packages
     vim
-    wget
-    which
+    bat
+    zoxide
+    fzf
+    bottom
+    sl
     yazi
     zellij
-    zoxide
+    neovim
+    lsd
+    gh
+    gitui
+    which
+    fish
+    nushell
+    tree
+    wget
+    curl
+    git
+    libsecret
+    xdg-utils
+    rustdesk
+    neofetch
+    unzip
+
+    shellcheck
+    nerd-fonts.fira-code
 
     # Terminal
     ghostty
 
     # Languages
-    conda
     go
+    conda
     uv
 
     # Web Dev
+    vscode
     bun
     deno
-    docker
-    httpie
-    nginx
     nodejs
-    vscode
+    httpie
+    docker
+    nginx
 
-    # Gaming
-    lutris.override {
+    # Steam
+    protonplus
+
+    ripgrep
+    zoxide
+    cloudflared
+    blueman
+    xsel
+    (lutris.override {
       extraPkgs = pkgs: [
+        # List package dependencies here
         wineWowPackages.stable
         winetricks
       ];
-    }
-    protonplus
-    steam
-    steam-run
-
-    # Utilities
-    blueman
-    cloudflared
-    nerd-fonts.fira-code
-    ripgrep
-    xsel
+    })
   ];
 
-  # Fonts
-  fonts.packages = with pkgs; [
-    dina-font
-    liberation_ttf
-    mplus-outline-fonts.githubRelease
-    nerd-fonts.fira-code
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    proggyfonts
-  ];
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-  # Computational Biology Packages (Commented Out)
+  # Computational Biology Packages
   # environment.systemPackages = with pkgs; [
-  #   bedtools
-  #   bioconda
   #   biopython
   #   blast
   #   clustalw
   #   samtools
+  #   bedtools
+  #   bioconda
   # ];
 
   # Future Categories (Add as needed)
@@ -105,4 +89,21 @@
 
   # Additional System Configurations (for specific setups)
   # For example, setting environment variables, paths, or special configurations.
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    nerd-fonts.fira-code
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
 }

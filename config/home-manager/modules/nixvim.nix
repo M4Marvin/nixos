@@ -1,14 +1,13 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, libs, ... }
+:
+{
   programs.nixvim = {
     enable = true;
 
      # Colorschemes
     colorschemes.catppuccin = {
       enable = true;
-      settings = {
-        flavour;
-        background.dark = "mocha";
-      };
+      settings.flavour = "mocha";
     };
     
     plugins.lualine.enable = true;
