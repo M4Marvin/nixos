@@ -34,6 +34,14 @@
           proxyPass = "http://localhost:3002";  # Your CV service
         };
       };
+
+      # Webhooks for CI/CD
+      "hooks.morphotech.xyz" = {
+        locations."/" = {
+          proxyPass = "http://localhost:8001";
+        };
+      };
+      
     };
   };
 }

@@ -2,102 +2,83 @@
 
 {
   services = {
-    flatpak.enable = true;
     dbus.enable = true;
+    flatpak.enable = true;
     picom.enable = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
-    home-manager
     # General System Packages
-    vim
     bat
-    zoxide
-    fzf
     bottom
+    curl
+    fish
+    fzf
+    gh
+    git
+    gitui
+    home-manager
+    libsecret
+    lsd
+    neofetch
+    neovim
+    nushell
+    rustdesk
     sl
+    tree
+    unzip
+    vim
+    wget
+    which
     yazi
     zellij
-    neovim
-    lsd
-    gh
-    gitui
-    which
-    fish
-    nushell
-    tree
-    wget
-    curl
-    git
-    libsecret
-    xdg-utils
-    rustdesk
-    neofetch
-    unzip
-
-    shellcheck
-    nerd-fonts.fira-code
+    zoxide
 
     # Terminal
     ghostty
 
     # Languages
-    go
     conda
+    go
     uv
 
     # Web Dev
-    vscode
     bun
     deno
-    nodejs
-    httpie
     docker
+    httpie
     nginx
+    nodejs
+    vscode
 
-    # Steam
-    steam
-    steam-run
-
-    ripgrep
-    zoxide
-    cloudflared
-    blueman
-    xsel
-    (lutris.override {
+    # Gaming
+    lutris.override {
       extraPkgs = pkgs: [
-        # List package dependencies here
         wineWowPackages.stable
         winetricks
       ];
-    })
+    }
+    protonplus
+    steam
+    steam-run
+
+    # Utilities
+    blueman
+    cloudflared
+    nerd-fonts.fira-code
+    ripgrep
+    xsel
   ];
 
-  # Computational Biology Packages
-  # environment.systemPackages = with pkgs; [
-  #   biopython
-  #   blast
-  #   clustalw
-  #   samtools
-  #   bedtools
-  #   bioconda
-  # ];
-
-  # Future Categories (Add as needed)
-  # environment.systemPackages = with pkgs; [
-  #   # Add your future package choices here
-  # ];
-
-  # Additional System Configurations (for specific setups)
-  # For example, setting environment variables, paths, or special configurations.
+  # Fonts
   fonts.packages = with pkgs; [
+    dina-font
+    liberation_ttf
+    mplus-outline-fonts.githubRelease
+    nerd-fonts.fira-code
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
-    liberation_ttf
-    nerd-fonts.fira-code
-    mplus-outline-fonts.githubRelease
-    dina-font
     proggyfonts
   ];
 
@@ -107,4 +88,21 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+  # Computational Biology Packages (Commented Out)
+  # environment.systemPackages = with pkgs; [
+  #   bedtools
+  #   bioconda
+  #   biopython
+  #   blast
+  #   clustalw
+  #   samtools
+  # ];
+
+  # Future Categories (Add as needed)
+  # environment.systemPackages = with pkgs; [
+  #   # Add your future package choices here
+  # ];
+
+  # Additional System Configurations (for specific setups)
+  # For example, setting environment variables, paths, or special configurations.
 }
