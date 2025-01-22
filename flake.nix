@@ -33,7 +33,7 @@
     homeConfigurations.marvin = home-manager.lib.homeManagerConfiguration {
       modules = [ ./config/home-manager/home.nix ];
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = { inherit self nixpkgs home-manager; };
+      extraSpecialArgs = { inherit self nixpkgs home-manager nixvim; };
     };
   };
 }
