@@ -34,6 +34,7 @@
     rustdesk
     neofetch
     unzip
+    lshw
 
     shellcheck
     nerd-fonts.fira-code
