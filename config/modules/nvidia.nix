@@ -26,7 +26,7 @@
     nvidiaSettings = true;
 
     # Use the stable version of the NVIDIA driver
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production; 
 
     # Prime offloading configuration
     prime = {
