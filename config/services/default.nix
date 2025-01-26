@@ -6,6 +6,6 @@
     ./main-site.nix
     ./cloudflared.nix
     ./nginx.nix
-    ./go-ci-server.nix
+    # ./go-ci-server.nix
   ];
 }

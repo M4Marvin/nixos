@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   programs.nixvim = {
     enable = true;
 
@@ -17,13 +16,14 @@
       settings.ensure_installed = [ "python" "go" "javascript" ];
     };
 
-    plugins.nvim-tree = {
+    plugins.lsp = {
       enable = true;
+      servers = { ruff_lsp.enable = true; };
     };
 
+    plugins.nvim-tree = { enable = true; };
+
     # Explicitly enable web-devicons
-    plugins.web-devicons = {
-      enable = true;
-    };
+    plugins.web-devicons = { enable = true; };
   };
 }

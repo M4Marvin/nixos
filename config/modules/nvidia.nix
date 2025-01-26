@@ -1,9 +1,6 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
   # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
+  hardware.graphics = { enable = true; };
 
   # Load NVIDIA driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -26,13 +23,13 @@
     nvidiaSettings = true;
 
     # Use the stable version of the NVIDIA driver
-    package = config.boot.kernelPackages.nvidiaPackages.production; 
+    package = config.boot.kernelPackages.nvidiaPackages.production;
 
     # Prime offloading configuration
     prime = {
       # AMD Integrated GPU
-      amdgpuBusId = "PCI:5:0:0";  # AMD GPU Bus ID
-      nvidiaBusId = "PCI:1:0:0";  # NVIDIA GPU Bus ID
+      amdgpuBusId = "PCI:5:0:0"; # AMD GPU Bus ID
+      nvidiaBusId = "PCI:1:0:0"; # NVIDIA GPU Bus ID
     };
   };
 

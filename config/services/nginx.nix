@@ -5,7 +5,7 @@
   # Nginx Configuration
   services.nginx = {
     enable = true;
-    
+
     # Basic recommended settings
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
@@ -16,7 +16,7 @@
       # Main site
       "morphotech.xyz" = {
         locations."/" = {
-          proxyPass = "http://localhost:3100";  # Next.js
+          proxyPass = "http://localhost:3100"; # Next.js
           proxyWebsockets = true;
         };
       };
@@ -24,24 +24,22 @@
       # Charts subdomain
       "charts.morphotech.xyz" = {
         locations."/" = {
-          proxyPass = "http://localhost:3001";  # Your charts service
+          proxyPass = "http://localhost:3001"; # Your charts service
         };
       };
 
       # CV subdomain
       "cv.morphotech.xyz" = {
         locations."/" = {
-          proxyPass = "http://localhost:3002";  # Your CV service
+          proxyPass = "http://localhost:3002"; # Your CV service
         };
       };
 
       # Webhooks for CI/CD
       "hooks.morphotech.xyz" = {
-        locations."/" = {
-          proxyPass = "http://localhost:8001";
-        };
+        locations."/" = { proxyPass = "http://localhost:8001"; };
       };
-      
+
     };
   };
 }

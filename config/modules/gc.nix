@@ -5,7 +5,8 @@
   nix.gc = {
     automatic = true; # Enable automatic garbage collection
     dates = "weekly"; # Run garbage collection weekly
-    options = "--delete-older-than 7d --keep 3"; # Delete store paths older than 7 days, but keep at least 3 generations
+    options =
+      "--delete-older-than 7d --keep 3"; # Delete store paths older than 7 days, but keep at least 3 generations
   };
 
   # Disk space management

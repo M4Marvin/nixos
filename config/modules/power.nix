@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   # Disable lid switch handling
   services.logind = {
     lidSwitch = "ignore";
@@ -14,7 +13,7 @@
   # Prevent sleep when lid is closed
   powerManagement = {
     enable = true;
-    powertop.enable = false;  # Disable powertop auto-tuning
+    powertop.enable = false; # Disable powertop auto-tuning
   };
 
   # Optional: Prevent system sleep on inactivity

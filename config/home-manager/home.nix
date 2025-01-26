@@ -1,10 +1,7 @@
-{ config, pkgs, inputs, nixvim,  ... }:
+{ config, pkgs, inputs, nixvim, ... }:
 
 {
-  imports = [
-    ./modules
-    nixvim.homeManagerModules.nixvim
-  ];
+  imports = [ ./modules nixvim.homeManagerModules.nixvim ];
 
   home = {
     username = "marvin";
@@ -20,7 +17,8 @@
     userName = "Marvin V Prakash";
     userEmail = "marvinprakash@gmail.com";
     extraConfig = {
-      credential.helper = "${config.programs.gh.package}/bin/gh auth git-credential";
+      credential.helper =
+        "${config.programs.gh.package}/bin/gh auth git-credential";
     };
   };
 
@@ -32,6 +30,6 @@
       # The auth token will be managed automatically by gh cli
     };
   };
-  
+
   home.stateVersion = "24.11";
 }

@@ -4,10 +4,10 @@
   networking.hostName = "marvin";
   networking.networkmanager.enable = true;
   services.openssh = {
-      enable = true;                            # Enable the OpenSSH service.
-      openFirewall = true;                      # Open the firewall for SSH connections.
+    enable = true; # Enable the OpenSSH service.
+    openFirewall = true; # Open the firewall for SSH connections.
 
-      banner = "/etc/ssh/banner.txt";     
+    banner = "/etc/ssh/banner.txt";
   };
 
   networking.firewall.allowedTCPPorts = [ 80 22 3210 ];
@@ -18,7 +18,6 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
-
 
   environment.etc."ssh/banner.txt".text = ''
     **************************************************

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  systemd.services.main-site = {
+  systemd.services.go-ci-service = {
     description = "Go Server for CI/CD";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];

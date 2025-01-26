@@ -17,7 +17,7 @@
     };
   };
 
-   outputs = { self, nixpkgs, home-manager, nix-ld, nixvim }: {
+  outputs = { self, nixpkgs, home-manager, nix-ld, nixvim }: {
     nixosConfigurations.marvin = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

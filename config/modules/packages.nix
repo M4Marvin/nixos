@@ -6,7 +6,7 @@
     dbus.enable = true;
     picom.enable = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     home-manager
     # General System Packages
@@ -37,6 +37,9 @@
     lshw
     pciutils
     latte-dock
+    ruff
+    ruff-lsp
+    nixfmt
 
     shellcheck
     nerd-fonts.fira-code
@@ -105,8 +108,10 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
   };
 
 }

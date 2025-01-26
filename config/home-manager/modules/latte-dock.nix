@@ -2,9 +2,7 @@
 
 {
   # Install Latte Dock
-  home.packages = with pkgs; [
-    latte-dock
-  ];
+  home.packages = with pkgs; [ latte-dock ];
 
   # Autostart Latte Dock
   xsession.initExtra = ''

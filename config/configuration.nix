@@ -1,12 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./modules
-      ./services
-    ];
+  imports = [ ./hardware-configuration.nix ./modules ./services ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -29,6 +24,6 @@
 
   powerManagement.cpuFreqGovernor = "ondemand";
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "24.11";
 }
