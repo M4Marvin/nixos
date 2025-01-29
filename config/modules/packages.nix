@@ -132,8 +132,5 @@
     gamescopeSession.enable = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    enableNvidiaPatches = true; # Critical for NVIDIA
-  };
+  programs.hyprland.enable = true;
 }
