@@ -12,7 +12,7 @@
 
     # NVIDIA power management (experimental)
     powerManagement = {
-      enable = false; # Disable if you experience issues with sleep/suspend
+      enable = true; # Disable if you experience issues with sleep/suspend
       finegrained = false; # Fine-grained power management (Turing+ GPUs only)
     };
 
@@ -23,16 +23,21 @@
     nvidiaSettings = true;
 
     # Use the stable version of the NVIDIA driver
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     # Prime offloading configuration
     prime = {
-      # AMD Integrated GPU
-      amdgpuBusId = "PCI:5:0:0"; # AMD GPU Bus ID
+      amdgpuBusId = "PCI:5:0:0"; # AMD CPU Bus ID
       nvidiaBusId = "PCI:1:0:0"; # NVIDIA GPU Bus ID
     };
   };
 
   # Optional: Blacklist the open-source `nouveau` driver
   boot.blacklistedKernelModules = [ "nouveau" ];
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor issues
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
 }

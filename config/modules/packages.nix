@@ -8,74 +8,89 @@
   };
 
   environment.systemPackages = with pkgs; [
-    home-manager
-    # General System Packages
-    vim
+    # Core System Tools
     bat
-    zoxide
-    fzf
     bottom
-    sl
-    yazi
-    zellij
-    neovim
-    lsd
-    gh
-    gitui
-    which
-    fish
-    nushell
-    tree
-    wget
     curl
     git
     libsecret
-    xdg-utils
-    rustdesk
-    neofetch
-    unzip
     lshw
+    neofetch
     pciutils
-    latte-dock
+    tree
+    unzip
+    vim
+    wget
+    which
+    xdg-utils
+
+    # Development Tools
+    gh
+    gitui
+    home-manager
+    httpie
+    nixfmt-classic
+    rustfmt
     ruff
     ruff-lsp
-    nixfmt
-
+    gopls
     shellcheck
+    vscode
+
+    # Docker & Web
+    bun
+    deno
+    docker
+    nginx
+    nodejs
+
+    # File Management
+    lsd
+    yazi
+
+    # Fonts
     nerd-fonts.fira-code
+
+    # Gaming
+    protonplus
+    (lutris.override {
+      extraPkgs = pkgs: [ wineWowPackages.stable winetricks ];
+    })
+
+    # Languages & Package Managers
+    conda
+    go
+    uv
+    rustc
+    rustup
+    cargo
+
+    # Networking
+    blueman
+    cloudflared
+    rustdesk
+
+    # Search Tools
+    fzf
+    ripgrep
+    zoxide
+
+    # Shells
+    fish
+    nushell
+
+    # System Customization
+    latte-dock
 
     # Terminal
     ghostty
+    neovim
+    sl
+    zellij
 
-    # Languages
-    go
-    conda
-    uv
-
-    # Web Dev
-    vscode
-    bun
-    deno
-    nodejs
-    httpie
-    docker
-    nginx
-
-    # Steam
-    protonplus
-
-    ripgrep
-    zoxide
-    cloudflared
-    blueman
+    # Utilities
     xsel
-    (lutris.override {
-      extraPkgs = pkgs: [
-        # List package dependencies here
-        wineWowPackages.stable
-        winetricks
-      ];
-    })
+    vulkan-tools
   ];
 
   # Computational Biology Packages
@@ -112,6 +127,13 @@
       true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall =
       true; # Open ports in the firewall for Source Dedicated Server
+    extraPackages = [ pkgs.proton-ge-bin ];
+    protontricks.enable = true;
+    gamescopeSession.enable = true;
   };
 
+  programs.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true; # Critical for NVIDIA
+  };
 }
