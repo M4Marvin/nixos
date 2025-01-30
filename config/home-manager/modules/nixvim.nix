@@ -28,7 +28,7 @@
     plugins.treesitter = {
       enable = true;
       settings.ensure_installed =
-        [ "go" "javascript" "python" "rust" "nix" "lua" ];
+        [ "go" "javascript" "typescript" "python" "rust" "nix" "lua" ];
     };
 
     # LSP Configuration
@@ -49,9 +49,13 @@
     # Completion
     plugins.cmp = {
       autoEnableSources = true;
+      autoLoad = true;
       settings.sources = [
         { name = "buffer"; }
         { name = "luasnip"; }
+        { name = "ts_ls"; }
+        { name = "gopls"; }
+        { name = "nixd"; }
         { name = "nvim_lsp"; }
         { name = "path"; }
         { name = "ruff"; }

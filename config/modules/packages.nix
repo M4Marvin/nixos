@@ -4,7 +4,7 @@
   services = {
     flatpak.enable = true;
     dbus.enable = true;
-    picom.enable = true;
+    # picom.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
