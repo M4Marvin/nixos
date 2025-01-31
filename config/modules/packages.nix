@@ -80,7 +80,12 @@
     nushell
 
     # System Customization
-    latte-dock
+    hyprland
+    rofi
+    waybar
+    mako
+    swaybg
+
 
     # Terminal
     ghostty
