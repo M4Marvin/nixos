@@ -41,5 +41,7 @@
     wl-clipboard # Clipboard utility
     grim # Screenshot tool
     slurp # Region selection tool
+    networkmanagerapplet
+    acpi
   ];
 }

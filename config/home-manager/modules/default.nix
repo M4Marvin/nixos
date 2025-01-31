@@ -5,5 +5,6 @@
     # ./vim.nix
     ./desktop.nix
     ./nixvim.nix
+    ./waybar.nix
   ];
 }
