@@ -23,28 +23,6 @@
     
   };
 
-  # Environment variables
-  environment.sessionVariables = {
-    # Fix for invisible cursor on some systems
-    WLR_NO_HARDWARE_CURSORS = "1";
-    # Hint Electron apps to use Wayland
-    NIXOS_OZONE_WL = "1";
-  };
-
-  # Waybar (status bar)
-  programs.waybar = {
-    enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    });
-  };
-
-  # XDG portal (for proper application integration in Wayland)
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
   # Printing support
   services.printing.enable = true;
 
