@@ -1,6 +1,8 @@
 { ... }: {
   programs.nixvim = {
     enable = true;
+    enableMan = true; # Enable manpages for nixvim options
+    defaultEditor = true;
 
     # Appearance
     colorschemes.catppuccin = {
@@ -48,6 +50,7 @@
 
     # Completion
     plugins.cmp = {
+      enable = true;
       autoEnableSources = true;
       autoLoad = true;
       settings.sources = [

@@ -84,13 +84,14 @@
 
     # Terminal
     ghostty
-    neovim
+    # neovim
     sl
     zellij
 
     # Utilities
     xsel
     vulkan-tools
+    obsidian
   ];
 
   # Computational Biology Packages
