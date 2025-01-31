@@ -20,6 +20,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true; # Enable XWayland for X11 compatibility
+    
   };
 
   # Environment variables
