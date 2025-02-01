@@ -32,9 +32,9 @@
        :halign "center"
     (label :text "${time}")))
 
-;; Add the time widget to the bar
-(defwindow bar
-           :monitor 0
+;; Bar for the primary monitor
+(defwindow bar-primary
+           :monitor 0  ;; Primary monitor
            :geometry (geometry :x "0%"
                                :y "0%"
                                :width "100%"
@@ -45,6 +45,23 @@
            :wm-ignore false
   (box :orientation "horizontal"
        :halign "center"
-    (greeter :text "Say hello!"
+    (greeter :text "Primary Monitor"
+             :name "Tim")
+    (time-widget)))
+
+;; Bar for the external monitor
+(defwindow bar-external
+           :monitor 1  ;; External monitor
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "100%"
+                               :height "30px"
+                               :anchor "top center")
+           :stacking "fg"
+           :windowtype "dock"
+           :wm-ignore false
+  (box :orientation "horizontal"
+       :halign "center"
+    (greeter :text "External Monitor"
              :name "Tim")
     (time-widget)))

@@ -208,7 +208,8 @@
       };
 
       exec-once = [
-        "${pkgs.eww} open bar"
+        "${pkgs.eww} open bar-primary"
+        "${pkgs.eww} open bar-external"
       ];
 
       # Environment variables
