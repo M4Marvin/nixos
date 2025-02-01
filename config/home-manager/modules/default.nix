@@ -3,8 +3,7 @@
     ./ghostty.nix
     ./fish.nix
     # ./vim.nix
-    ./desktop.nix
+    ./desktop
     ./nixvim.nix
-    ./waybar.nix
   ];
 }

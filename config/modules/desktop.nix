@@ -28,8 +28,23 @@
 
   # Enable Firefox
   programs.firefox.enable = true;
-
+ 
   # Allow unfree packages (e.g., for Nvidia drivers)
   nixpkgs.config.allowUnfree = true;
-
-}
+  
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+    pulseaudio
+    brightnessctl
+    acpi
+    wob
+  ];
+}        
+     
+     
+     
+     
+     
+     
+     
+     

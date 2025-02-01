@@ -47,6 +47,9 @@
     # File Management
     lsd
     yazi
+    wireplumber
+    wofi
+    dolphin
 
     # Fonts
     nerd-fonts.fira-code
