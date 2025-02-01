@@ -1,8 +1,17 @@
-{  pkgs, ... }:
+{  inputs, pkgs, ... }:
 
 {
+  # Link the eww configuration files
+  xdg.configFile."eww/eww.yuck".source = ./eww.yuck;
+  xdg.configFile."eww/eww.scss".source = ./eww.scss;
+
+
   wayland.windowManager.hyprland = {
     enable = true;
+
+    plugins = [
+      
+    ];
 
     settings = {
 
@@ -199,7 +208,7 @@
       };
 
       exec-once = [
-        "waybar"
+        "${pkgs.eww} open bar"
       ];
 
       # Environment variables

@@ -85,7 +85,8 @@
     # System Customization
     hyprland
     rofi
-    waybar
+    hyprlock
+    eww
     mako
     swaybg
     pulseaudioFull

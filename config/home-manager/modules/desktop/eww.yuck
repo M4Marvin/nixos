@@ -1,0 +1,50 @@
+;; ~/.config/eww/eww.yuck
+
+;; Define a basic widget
+(defwidget greeter [?text name]
+  (box :orientation "horizontal"
+       :halign "center"
+    text
+    (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
+      "Greet")))
+
+;; Define a window for the bar
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "100%"
+                               :height "30px"
+                               :anchor "top center")
+           :stacking "fg"
+           :windowtype "dock"
+           :wm-ignore false
+  (greeter :text "Say hello!"
+           :name "Tim"))
+
+;; Define a polling variable for the time
+(defpoll time :interval "1s"
+  `date +%H:%M:%S`)
+
+;; Define a widget to display the time
+(defwidget time-widget []
+  (box :orientation "horizontal"
+       :halign "center"
+    (label :text "${time}")))
+
+;; Add the time widget to the bar
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "100%"
+                               :height "30px"
+                               :anchor "top center")
+           :stacking "fg"
+           :windowtype "dock"
+           :wm-ignore false
+  (box :orientation "horizontal"
+       :halign "center"
+    (greeter :text "Say hello!"
+             :name "Tim")
+    (time-widget)))
