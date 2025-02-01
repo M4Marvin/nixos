@@ -32,16 +32,4 @@
   # Allow unfree packages (e.g., for Nvidia drivers)
   nixpkgs.config.allowUnfree = true;
 
-  # Additional packages for Hyprland
-  environment.systemPackages = with pkgs; [
-    rofi # Application launcher
-    mako # Notification daemon
-    swaybg # Wallpaper utility
-    swaylock # Screen locker
-    wl-clipboard # Clipboard utility
-    grim # Screenshot tool
-    slurp # Region selection tool
-    networkmanagerapplet
-    acpi
-  ];
 }

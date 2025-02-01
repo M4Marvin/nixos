@@ -85,6 +85,7 @@
     waybar
     mako
     swaybg
+    pulseaudioFull
 
 
     # Terminal
