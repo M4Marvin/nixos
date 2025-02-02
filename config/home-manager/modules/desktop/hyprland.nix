@@ -107,7 +107,8 @@
         ", XF86AudioPrev, exec, playerctl previous"
       ];
 
-      monitor = [ ",preferred,auto,1" ];
+      # monitor = [ ",addreserved, 0, 0, 0, 0" ];
+      monitor = [ ",preferred, auto, 1" ];
 
       input = {
         kb_layout = "us";
@@ -126,6 +127,7 @@
       gestures = {
         workspace_swipe = false;
       };
+
       general = {
         gaps_in = 5;
         gaps_out = 20;
@@ -195,6 +197,8 @@
 
       dwindle = {
         pseudotile = true;
+				smart_split = false;
+				smart_resizing = false;
         preserve_split = true;
       };
 
@@ -210,6 +214,8 @@
       exec-once = [
         "${pkgs.eww} open bar-primary"
         "${pkgs.eww} open bar-external"
+        "nm-applet --indicator"
+        "blueman-applet"
       ];
 
       # Environment variables

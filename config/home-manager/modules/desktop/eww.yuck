@@ -42,6 +42,7 @@
                                :anchor "top center")
            :stacking "fg"
            :windowtype "dock"
+           :reserve (struts :distance "30px" :side "top")
            :wm-ignore false
   (box :orientation "horizontal"
        :halign "center"
@@ -59,6 +60,7 @@
                                :anchor "top center")
            :stacking "fg"
            :windowtype "dock"
+           :reserve (struts :distance "30px" :side "top")
            :wm-ignore false
   (box :orientation "horizontal"
        :halign "center"
