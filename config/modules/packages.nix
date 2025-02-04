@@ -102,12 +102,9 @@
     vulkan-tools
     obsidian
     vlc
-    xdg-desktop-portal
-    xdg-desktop-portal-hyprland
     ffmpeg-full
     wireplumber
     obs-studio
-    obs-studio-plugins.obs-ndi
   ];
 
   # Computational Biology Packages

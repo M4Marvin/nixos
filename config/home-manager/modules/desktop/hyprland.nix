@@ -229,10 +229,4 @@
     NIXOS_OZONE_WL = "1";
     WOBSOCK = "/tmp/wob.sock";
   };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-    config = { common.default = "*"; };
-  };
 }
