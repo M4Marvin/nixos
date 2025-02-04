@@ -4,7 +4,10 @@
   # Link the eww configuration files
   xdg.configFile."eww/eww.yuck".source = ./eww.yuck;
   xdg.configFile."eww/eww.scss".source = ./eww.scss;
-
+  # xdg.configFile."ags" = {
+  #   source = "./ags/dist";
+  #   recursive = true;
+  # }
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -212,8 +215,8 @@
       };
 
       exec-once = [
-        "${pkgs.eww} open bar-primary"
-        "${pkgs.eww} open bar-external"
+        "eww open bar-primary"
+        "eww open bar-external"
         "nm-applet --indicator"
         "blueman-applet"
       ];
@@ -234,7 +237,7 @@
   
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
     config = {
       common.default = "*";
     };
