@@ -7,6 +7,8 @@
     ags.homeManagerModules.default
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     username = "marvin";
     homeDirectory = "/home/marvin";

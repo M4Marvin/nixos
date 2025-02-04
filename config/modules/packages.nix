@@ -7,6 +7,7 @@
     # picom.enable = true;
   };
 
+
   environment.systemPackages = with pkgs; [
     # Core System Tools
     bat
