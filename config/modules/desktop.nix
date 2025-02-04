@@ -20,7 +20,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true; # Enable XWayland for X11 compatibility
-    
+
   };
 
   # Printing support
@@ -28,10 +28,10 @@
 
   # Enable Firefox
   programs.firefox.enable = true;
- 
+
   # Allow unfree packages (e.g., for Nvidia drivers)
   nixpkgs.config.allowUnfree = true;
-  
+
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
     pulseaudio
@@ -39,12 +39,5 @@
     acpi
     wob
   ];
-}        
-     
-     
-     
-     
-     
-     
-     
-     
+}
+

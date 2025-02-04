@@ -15,7 +15,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags.url = "github:aylur/ags";
+    ags = {
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nix-ld, nixvim, ags }: {
@@ -34,7 +37,9 @@
     homeConfigurations.marvin = home-manager.lib.homeManagerConfiguration {
       modules = [ ./config/home-manager/home.nix ];
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = { inherit self nixpkgs home-manager nixvim ags;  };
+      extraSpecialArgs = {
+        inherit self nixpkgs home-manager nix-ld nixvim ags;
+      };
     };
   };
 }

@@ -1,4 +1,4 @@
-{  inputs, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   # Link the eww configuration files
@@ -13,14 +13,14 @@
     enable = true;
 
     plugins = [
-      
+
     ];
 
     settings = {
 
       "$mainMod" = "SUPER";
-      "$terminal" = "ghostty"; 
-      "$fileManager" = "dolphin"; 
+      "$terminal" = "ghostty";
+      "$fileManager" = "dolphin";
       "$menu" = "rofi -show drun -show-icons";
 
       bind = [
@@ -47,7 +47,6 @@
         "SUPER CTRL,K,swapwindow,u"
         "SUPER CTRL,J,swapwindow,d"
 
-        
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -88,10 +87,15 @@
 
         ",XF86AudioRaiseVolume,exec, pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK"
         ",XF86AudioLowerVolume,exec, pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK"
-        '',XF86AudioMute,exec,${pkgs.pamixer} --toggle-mute && ( [ "$(${pkgs.pamixer} --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || ${pkgs.pamixer} --get-volume > $WOBSOCK''
+        ''
+          ,XF86AudioMute,exec,${pkgs.pamixer} --toggle-mute && ( [ "$(${pkgs.pamixer} --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || ${pkgs.pamixer} --get-volume > $WOBSOCK''
 
-        ",XF86MonBrightnessUp,exec,${pkgs.lib.getExe pkgs.brightnessctl} set +5%"
-        ",XF86MonBrightnessDown,exec,${pkgs.lib.getExe pkgs.brightnessctl} set 5%-"
+        ",XF86MonBrightnessUp,exec,${
+          pkgs.lib.getExe pkgs.brightnessctl
+        } set +5%"
+        ",XF86MonBrightnessDown,exec,${
+          pkgs.lib.getExe pkgs.brightnessctl
+        } set 5%-"
       ];
 
       bindel = [
@@ -122,14 +126,10 @@
         follow_mouse = 1;
         sensitivity = 0;
 
-        touchpad = {
-          natural_scroll = false;
-        };
+        touchpad = { natural_scroll = false; };
       };
 
-      gestures = {
-        workspace_swipe = false;
-      };
+      gestures = { workspace_swipe = false; };
 
       general = {
         gaps_in = 5;
@@ -154,7 +154,7 @@
           ignore_opacity = 1;
           xray = 1;
           new_optimizations = 1;
-          noise = 0.03;
+          noise = 3.0e-2;
           contrast = 1.0;
           vibrancy = 0.1696;
         };
@@ -200,14 +200,12 @@
 
       dwindle = {
         pseudotile = true;
-				smart_split = false;
-				smart_resizing = false;
+        smart_split = false;
+        smart_resizing = false;
         preserve_split = true;
       };
 
-      master = {
-        new_status = "master";
-      };
+      master = { new_status = "master"; };
 
       misc = {
         force_default_wallpaper = -1;
@@ -222,24 +220,19 @@
       ];
 
       # Environment variables
-      env = [
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
-      ];
+      env = [ "XCURSOR_SIZE,24" "HYPRCURSOR_SIZE,24" ];
     };
   };
 
   home.sessionVariables = {
-     WLR_NO_HARDWARE_CURSORS = "1";
-     NIXOS_OZONE_WL = "1";
-     WOBSOCK = "/tmp/wob.sock";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+    WOBSOCK = "/tmp/wob.sock";
   };
-  
+
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-    config = {
-      common.default = "*";
-    };
+    config = { common.default = "*"; };
   };
 }

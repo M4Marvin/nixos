@@ -1,7 +1,11 @@
-{ config, pkgs, inputs, nixvim, ... }:
+{ config, pkgs, inputs, nixvim, ags, ... }:
 
 {
-  imports = [ ./modules nixvim.homeManagerModules.nixvim ];
+  imports = [
+    ./modules
+    nixvim.homeManagerModules.nixvim
+    ags.homeManagerModules.default
+  ];
 
   home = {
     username = "marvin";
