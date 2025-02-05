@@ -10,5 +10,6 @@
     ./power.nix
     ./gc.nix
     ./nvidia.nix
+    ./vcam.nix
   ];
 }

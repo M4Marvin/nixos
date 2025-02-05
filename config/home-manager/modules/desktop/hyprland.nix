@@ -4,10 +4,10 @@
   # Link the eww configuration files
   xdg.configFile."eww/eww.yuck".source = ./eww.yuck;
   xdg.configFile."eww/eww.scss".source = ./eww.scss;
-  # xdg.configFile."ags" = {
-  #   source = "./ags/dist";
-  #   recursive = true;
-  # }
+  xdg.configFile."ags" = {
+    source = "./ags";
+    recursive = true;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -115,7 +115,7 @@
       ];
 
       # monitor = [ ",addreserved, 0, 0, 0, 0" ];
-      monitor = [ ",preferred, auto, 1" ];
+      monitor = [ ",preferred, auto, 1, bitdepth, 10" ];
 
       input = {
         kb_layout = "us";

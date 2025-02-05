@@ -7,7 +7,6 @@
     # picom.enable = true;
   };
 
-
   environment.systemPackages = with pkgs; [
     # Core System Tools
     bat
@@ -106,12 +105,15 @@
     ffmpeg-full
     wireplumber
     obs-studio
+    tigervnc
+    wf-recorder
+    v4l-utils
   ];
 
   # Computational Biology Packages
   # environment.systemPackages = with pkgs; [
   #   biopython
-  #   blast
+  #   blastL
   #   clustalw
   #   samtools
   #   bedtools

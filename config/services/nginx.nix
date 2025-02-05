@@ -6,6 +6,26 @@
   services.nginx = {
     enable = true;
 
+    # Add RTMP module
+    package = pkgs.nginxMainline.override {
+      modules = with pkgs.nginxModules; [ rtmp ];
+    };
+
+    # RTMP Configuration
+    appendConfig = ''
+      rtmp {
+        server {
+          listen 1935;
+          chunk_size 4096;
+
+          application live {
+            live on;
+            record off;
+          }
+        }
+      }
+    '';
+
     # Basic recommended settings
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
