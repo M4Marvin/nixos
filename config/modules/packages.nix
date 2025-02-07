@@ -11,6 +11,8 @@
     # Core System Tools
     bat
     bottom
+    glances
+    procs
     curl
     git
     libsecret
@@ -23,6 +25,7 @@
     wget
     which
     xdg-utils
+    zoxide
 
     # Development Tools
     gh
@@ -77,6 +80,7 @@
     fzf
     ripgrep
     zoxide
+    starship
 
     # Shells
     fish
@@ -87,7 +91,6 @@
     rofi
     hyprlock
     eww
-    mako
     swaybg
     pulseaudioFull
 
@@ -96,6 +99,9 @@
     # neovim
     sl
     zellij
+    jq
+    dust
+    tldr
 
     # Utilities
     xsel
@@ -108,6 +114,7 @@
     tigervnc
     wf-recorder
     v4l-utils
+    wl-clipboard
   ];
 
   # Computational Biology Packages

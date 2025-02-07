@@ -14,6 +14,19 @@
     homeDirectory = "/home/marvin";
   };
 
+  programs.starship = {
+    enable = true;
+    enableTransience = true;
+    settings = {
+      add_newline = false;
+      scan_timeout = 10;
+      character = {
+        success_symbol = "➜";
+        error_symbol = "➜";
+      };
+    };
+  };
+
   programs.home-manager.enable = true;
 
   # systemd.useFr.startServices = "sd-switch";

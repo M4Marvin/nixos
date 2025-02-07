@@ -4,10 +4,6 @@
   # Link the eww configuration files
   xdg.configFile."eww/eww.yuck".source = ./eww.yuck;
   xdg.configFile."eww/eww.scss".source = ./eww.scss;
-  xdg.configFile."ags" = {
-    source = "./ags";
-    recursive = true;
-  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -115,7 +111,8 @@
       ];
 
       # monitor = [ ",addreserved, 0, 0, 0, 0" ];
-      monitor = [ ",preferred, auto, 1, bitdepth, 10" ];
+      # monitor = [ ",preferred, auto, 1, bitdepth, 10" ];
+      monitor = [ ",preferred, auto, 1 " ];
 
       input = {
         kb_layout = "us";
@@ -213,14 +210,35 @@
       };
 
       exec-once = [
-        "eww open bar-primary"
-        "eww open bar-external"
+        #  "eww open bar-primary"
+        #  "eww open bar-external"
+        "ags run --gtk4"
         "nm-applet --indicator"
         "blueman-applet"
+        "systemctl --user start hyprpolkitagent"
+
       ];
 
       # Environment variables
       env = [ "XCURSOR_SIZE,24" "HYPRCURSOR_SIZE,24" ];
+    };
+  };
+
+  # Hyprland-specific clipboard configuration
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland # Hyprland-specific portal
+      pkgs.xdg-desktop-portal-gtk # Fallback for GTK apps
+    ];
+    config = {
+      common.default = "*"; # Maintains <1.17 behavior for unspecified portals
+      hyprland = { # Hyprland-specific portal config
+        default = [ "hyprland" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.Background" = [ "hyprland" ];
+      };
     };
   };
 

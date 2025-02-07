@@ -11,5 +11,6 @@
     ./gc.nix
     ./nvidia.nix
     ./vcam.nix
+    ./aliases.nix
   ];
 }

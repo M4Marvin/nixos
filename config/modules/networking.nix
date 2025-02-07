@@ -10,7 +10,8 @@
     banner = "/etc/ssh/banner.txt";
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 22 3210 8080 5353 5960 5961 5962 1935];
+  networking.firewall.allowedTCPPorts =
+    [ 80 22 3210 8080 5353 5960 5961 5962 1935 ];
   networking.firewall.allowedUDPPorts = [ 5353 5960 5961 5962 ];
 
   # networking.wireless.enable = true;
