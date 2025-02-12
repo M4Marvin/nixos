@@ -21,6 +21,7 @@
     pciutils
     tree
     unzip
+    p7zip
     vim
     wget
     which
@@ -52,7 +53,9 @@
     yazi
     wireplumber
     wofi
-    dolphin
+    xfce.thunar
+    xfce.thunar-archive-plugin
+    xfce.thunar-media-tags-plugin
 
     # Fonts
     nerd-fonts.fira-code
@@ -115,6 +118,7 @@
     wf-recorder
     v4l-utils
     wl-clipboard
+    unrar
   ];
 
   # Computational Biology Packages

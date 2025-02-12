@@ -2,7 +2,7 @@
 
 {
   environment.shellAliases = {
-    cd = "zoxide";
+    cd = "z";
     ls = "lsd";
     l = "lsd -l"; # Long listing
     la = "lsd -la"; # Long listing with hidden files

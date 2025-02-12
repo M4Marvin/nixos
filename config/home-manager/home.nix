@@ -28,6 +28,7 @@
   };
 
   programs.home-manager.enable = true;
+  programs.zoxide.enable = true;
 
   # systemd.useFr.startServices = "sd-switch";
 

@@ -5,5 +5,6 @@
     # ./vim.nix
     ./desktop
     ./nixvim.nix
+    ./yazi.nix
   ];
 }
