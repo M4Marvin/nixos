@@ -2,8 +2,8 @@
 
 {
   # Link the eww configuration files
-  xdg.configFile."eww/eww.yuck".source = ./eww.yuck;
-  xdg.configFile."eww/eww.scss".source = ./eww.scss;
+  xdg.configFile."eww/eww.yuck".source = ./eww/eww.yuck;
+  xdg.configFile."eww/eww.scss".source = ./eww/eww.scss;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -210,9 +210,9 @@
       };
 
       exec-once = [
-        #  "eww open bar-primary"
-        #  "eww open bar-external"
-        "ags run --gtk4"
+        "eww open bar-primary"
+        "eww open bar-external"
+        # "ags run --gtk4"
         "nm-applet --indicator"
         "blueman-applet"
         "systemctl --user start hyprpolkitagent"
